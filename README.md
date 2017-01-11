@@ -16,5 +16,5 @@ resolvers ++= Seq(
 ```
 
 ## Dependency
-libraryDependencies += "software.reinvent" % "commons" % "0.1.0"
+`libraryDependencies += "software.reinvent" % "commons" % "0.1.0"`
 
