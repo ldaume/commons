@@ -1,3 +1,5 @@
+[![Build Status](https://ci.reinvent-software.de/buildStatus/icon?job=Commons-Build)](https://ci.reinvent-software.de/job/Commons-Build)
+
 Commons
 ==========
 
