@@ -1,6 +1,8 @@
 package software.reinvent.log;
 
 
+import com.google.inject.Inject;
+
 import org.jukito.JukitoRunner;
 import org.jukito.UseModules;
 import org.junit.After;
@@ -11,12 +13,10 @@ import org.mockito.ArgumentCaptor;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
-import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.LoggingEvent;
 import ch.qos.logback.core.Appender;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -33,13 +33,15 @@ public class LoggerTest {
 
     private Logger rootLogger;
 
-    private Appender mockedAppender = mock(Appender.class);
+    @Inject
+    private Appender mockedAppender;
+
+
     private ArgumentCaptor<Appender> argumentCaptor = ArgumentCaptor.forClass(Appender.class);
 
     @Before
-    public void setUp(Appender<ILoggingEvent> appender, ArgumentCaptor<Appender> argumentCaptor) throws Exception {
+    public void setUp() throws Exception {
         rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
-
         rootLogger.addAppender(mockedAppender);
     }
 
