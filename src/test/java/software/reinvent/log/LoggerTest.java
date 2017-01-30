@@ -16,7 +16,7 @@ import ch.qos.logback.classic.spi.LoggingEvent;
 import ch.qos.logback.core.Appender;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -31,22 +31,21 @@ public class LoggerTest {
     @InjectLogger
     private org.slf4j.Logger injectedLogger;
 
-    private Logger log = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    private Logger rootLogger;
 
-    private Appender<ILoggingEvent> mockAppender;
-    private ArgumentCaptor<LoggingEvent> captorLoggingEvent;
+    private Appender mockedAppender = mock(Appender.class);
+    private ArgumentCaptor<Appender> argumentCaptor = ArgumentCaptor.forClass(Appender.class);
 
     @Before
-    public void setUp(Appender<ILoggingEvent> appender, ArgumentCaptor<LoggingEvent> captor) throws Exception {
-        mockAppender = appender;
-        this.captorLoggingEvent = captor;
+    public void setUp(Appender<ILoggingEvent> appender, ArgumentCaptor<Appender> argumentCaptor) throws Exception {
+        rootLogger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-        log.addAppender(mockAppender);
+        rootLogger.addAppender(mockedAppender);
     }
 
     @After
     public void tearDown() throws Exception {
-        log.detachAppender(mockAppender);
+        rootLogger.detachAppender(mockedAppender);
     }
 
 
@@ -54,8 +53,8 @@ public class LoggerTest {
     public void testInjectedLogger() throws Exception {
         injectedLogger.info("Just a {}.", "test");
 
-        verify(mockAppender, times(1)).doAppend(captorLoggingEvent.capture());
-        final LoggingEvent loggingEvent = captorLoggingEvent.getValue();
-        assertThat(loggingEvent.getFormattedMessage()).isEqualTo("Just a test.");
+        verify(mockedAppender).doAppend(argumentCaptor.capture());
+        assertThat(((LoggingEvent) argumentCaptor.getAllValues().get(0)).getFormattedMessage()).isEqualTo("Just a test.");
+
     }
 }
