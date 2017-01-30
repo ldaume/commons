@@ -4,7 +4,8 @@ name := """commons"""
 // orgnization name (e.g., the package name of the project)
 organization := "software.reinvent"
 
-version := "0.2.0-SNAPSHOT"
+//version := "0.2.0-SNAPSHOT"
+version := "0.1.1"
 
 scalaVersion := "2.12.1"
 
@@ -48,7 +49,7 @@ libraryDependencies ++= Seq(
 
   // Commons
   "org.apache.commons" % "commons-lang3" % "3.5",
-  "com.google.guava" % "guava" % "20.0",
+  "com.google.guava" % "guava" % "21.0",
   "org.apache.commons" % "commons-collections4" % "4.1",
   "commons-io" % "commons-io" % "2.5",
   "com.typesafe" % "config" % "1.3.1",
@@ -60,15 +61,15 @@ libraryDependencies ++= Seq(
 
 
   // LOGGING
-  "ch.qos.logback" % "logback-classic" % "1.1.8",
-  "ch.qos.logback" % "logback-core" % "1.1.8",
+  "ch.qos.logback" % "logback-classic" % "1.1.9",
+  "ch.qos.logback" % "logback-core" % "1.1.9",
 
 
   // TEST
-  "org.assertj" % "assertj-core" % "3.6.1" % "test",
+  "org.assertj" % "assertj-core" % "3.6.2" % "test",
   "org.assertj" % "assertj-guava" % "3.1.0" % "test" exclude("com.google.guava", "guava"),
   "com.novocode" % "junit-interface" % "0.11" % "test->default",
-  "org.jukito" % "jukito" % "1.4.1" % "test"
+  "org.jukito" % "jukito" % "1.5" % "test"
 )
 
 scalacOptions in Test ++= Seq("-Yrangepos")
