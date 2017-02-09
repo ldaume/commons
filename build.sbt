@@ -5,7 +5,7 @@ name := """commons"""
 organization := "software.reinvent"
 
 //version := "0.2.0-SNAPSHOT"
-version := "0.1.2"
+version := "0.1.3"
 
 scalaVersion := "2.12.1"
 
@@ -61,8 +61,8 @@ libraryDependencies ++= Seq(
 
 
   // LOGGING
-  "ch.qos.logback" % "logback-classic" % "1.1.10",
-  "ch.qos.logback" % "logback-core" % "1.1.10",
+  "ch.qos.logback" % "logback-classic" % "1.2.0",
+  "ch.qos.logback" % "logback-core" % "1.2.0",
 
 
   // TEST
