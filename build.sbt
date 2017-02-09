@@ -61,8 +61,8 @@ libraryDependencies ++= Seq(
 
 
   // LOGGING
-  "ch.qos.logback" % "logback-classic" % "1.2.0",
-  "ch.qos.logback" % "logback-core" % "1.2.0",
+  "ch.qos.logback" % "logback-classic" % "1.2.1",
+  "ch.qos.logback" % "logback-core" % "1.2.1",
 
 
   // TEST
