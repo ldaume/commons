@@ -22,5 +22,5 @@ resolvers ++= Seq(
 ```
 
 ## Dependency
-`libraryDependencies += "software.reinvent" % "commons" % "0.1.4"`
+`libraryDependencies += "software.reinvent" % "commons" % "0.2.0"`
 
