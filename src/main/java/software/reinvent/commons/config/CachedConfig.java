@@ -167,7 +167,6 @@ public class CachedConfig implements Config {
         return config.getDoubleList(path);
     }
 
-    // TODO: cached
     @Override
     public List<String> getStringList(String path) {
         return config.getStringList(path);
