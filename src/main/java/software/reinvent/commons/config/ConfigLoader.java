@@ -41,7 +41,7 @@ public class ConfigLoader {
         return config.withFallback(ConfigFactory.load()).resolve();
     }
 
-    public static Config loadCached() {
+    public static CachedConfig loadCached() {
         Config config = ConfigFactory.parseProperties(System.getProperties());
         config = withProvidedValues(config);
         config = withUserValues(config);
