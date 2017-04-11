@@ -2,11 +2,13 @@ package software.reinvent.utils;
 
 import com.google.common.collect.ImmutableList;
 
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static software.reinvent.utils.Comparators.versionStringComparator;
 
 /**
  * CUT of {@link Comparators}.
@@ -15,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ComparatorsTest {
     @Test
-    public void versionStringComparator() throws Exception {
+    public void versionStringComparatorTest() throws Exception {
         final List<String> unordered = ImmutableList.of("v0.1 foo",
                                                         "2.15.2",
                                                         "v3.0.12.5",
@@ -35,10 +37,10 @@ public class ComparatorsTest {
                                                       "3.0.11.4",
                                                       "v3.0.12.5");
 
-        assertThat(unordered.stream().sorted(Comparators.versionStringComparator()))
-                .containsExactlyElementsOf(ordered);
+        assertThat(unordered.stream().sorted(versionStringComparator())).containsExactlyElementsOf(ordered);
 
-
+        assertThat(Lists.newArrayList("v0.1", null, "0.0").stream().sorted(versionStringComparator())).containsExactly(null,
+                                                                                                                       "0.0",
+                                                                                                                       "v0.1");
     }
-
 }

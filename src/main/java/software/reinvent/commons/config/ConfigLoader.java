@@ -1,8 +1,10 @@
 package software.reinvent.commons.config;
 
 import com.google.common.base.Charsets;
+
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +41,13 @@ public class ConfigLoader {
         return config.withFallback(ConfigFactory.load()).resolve();
     }
 
+    public static Config loadCached() {
+        Config config = ConfigFactory.parseProperties(System.getProperties());
+        config = withProvidedValues(config);
+        config = withUserValues(config);
+        return new CachedConfig(config.withFallback(ConfigFactory.load()).resolve());
+    }
+
     private static Config withProvidedValues(final Config config) {
         final String providedConfig = System.getProperty("provided.config");
         if (isNotBlank(providedConfig)) {
@@ -53,7 +62,7 @@ public class ConfigLoader {
             final String pathToUserConfig = "/" + userConfigFile;
             if (isNotBlank(userConfigFile) && ConfigLoader.class.getResource(pathToUserConfig) != null) {
                 final String confString = IOUtils.toString(ConfigLoader.class.getResourceAsStream(pathToUserConfig),
-                        Charsets.UTF_8);
+                                                           Charsets.UTF_8);
                 final Config parsedConfig = ConfigFactory.parseString(confString);
                 return config.withFallback(parsedConfig);
             }
