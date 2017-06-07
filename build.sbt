@@ -54,7 +54,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons" % "commons-collections4" % "4.1",
   "commons-io" % "commons-io" % "2.5",
   "com.typesafe" % "config" % "1.3.1",
-  "org.unbescape" % "unbescape" % "1.1.4.RELEASE",
+  "org.unbescape" % "unbescape" % "1.1.5.RELEASE",
   "com.github.rholder" % "guava-retrying" % "2.0.0" exclude("com.google.guava", "guava"),
 
   // READABILITY
