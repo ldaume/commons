@@ -4,8 +4,8 @@ name := """commons"""
 // orgnization name (e.g., the package name of the project)
 organization := "software.reinvent"
 
-//version := "0.4.0-SNAPSHOT"
-version := "0.3.3"
+version := "0.4.0-SNAPSHOT"
+//version := "0.3.3"
 
 scalaVersion := "2.12.1"
 
