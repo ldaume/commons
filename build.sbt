@@ -4,8 +4,8 @@ name := """commons"""
 // orgnization name (e.g., the package name of the project)
 organization := "software.reinvent"
 
-version := "0.4.0-SNAPSHOT"
-//version := "0.3.2"
+//version := "0.4.0-SNAPSHOT"
+version := "0.3.3"
 
 scalaVersion := "2.12.1"
 
@@ -49,7 +49,7 @@ libraryDependencies ++= Seq(
   "com.google.inject" % "guice" % "4.1.0",
 
   // Commons
-  "org.apache.commons" % "commons-lang3" % "3.5",
+  "org.apache.commons" % "commons-lang3" % "3.6",
   "com.google.guava" % "guava" % "22.0",
   "org.apache.commons" % "commons-collections4" % "4.1",
   "commons-io" % "commons-io" % "2.5",
