@@ -1,4 +1,4 @@
-import aether.AetherKeys._
+
 
 // Project name (artifact name in Maven)
 name := """commons"""
@@ -31,6 +31,7 @@ publishTo := {
 overridePublishBothSettings
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials.deploy")
 
 // Do not append Scala versions to the generated artifacts
 crossPaths := false
@@ -38,57 +39,45 @@ crossPaths := false
 // This forbids including Scala related libraries into the dependency
 autoScalaLibrary := false
 
-packageOptions <+= (name, version, organization) map { (title, version, vendor) =>
-  Package.ManifestAttributes(
-    "Created-By" -> "Simple Build Tool",
-    "Built-By" -> System.getProperty("user.name"),
-    "Build-Jdk" -> System.getProperty("java.version"),
-    "Specification-Title" -> title,
-    "Specification-Version" -> version,
-    "Specification-Vendor" -> vendor,
-    "Implementation-Title" -> title,
-    "Implementation-Version" -> version,
-    "Implementation-Vendor-Id" -> vendor,
-    "Implementation-Vendor" -> vendor
-  )
-}
-
 resolvers ++= Seq(
   Resolver.mavenLocal,
   "ReInvent Software OSS" at "https://maven.reinvent-software.de/nexus/content/groups/public"
 )
 
 
-libraryDependencies ++= Seq(
+libraryDependencies ++= {
+  val mavenVersion = "3.3.9"
+  val aetherVersion = "1.1.0"
+  Seq(
+    "com.google.inject" % "guice" % "4.1.0",
+
+    // Commons
+    "org.apache.commons" % "commons-lang3" % "3.6",
+    "com.google.guava" % "guava" % "22.0",
+    "org.apache.commons" % "commons-collections4" % "4.1",
+    "commons-io" % "commons-io" % "2.5",
+    "com.typesafe" % "config" % "1.3.1",
+    "org.unbescape" % "unbescape" % "1.1.5.RELEASE",
+    "com.github.rholder" % "guava-retrying" % "2.0.0" exclude("com.google.guava", "guava"),
+
+    // READABILITY
+    "com.github.mfornos" % "humanize-slim" % "1.2.2" exclude("com.google.guava", "guava"),
 
 
-  "com.google.inject" % "guice" % "4.1.0",
-
-  // Commons
-  "org.apache.commons" % "commons-lang3" % "3.6",
-  "com.google.guava" % "guava" % "22.0",
-  "org.apache.commons" % "commons-collections4" % "4.1",
-  "commons-io" % "commons-io" % "2.5",
-  "com.typesafe" % "config" % "1.3.1",
-  "org.unbescape" % "unbescape" % "1.1.5.RELEASE",
-  "com.github.rholder" % "guava-retrying" % "2.0.0" exclude("com.google.guava", "guava"),
-
-  // READABILITY
-  "com.github.mfornos" % "humanize-slim" % "1.2.2" exclude("com.google.guava", "guava"),
+    // LOGGING
+    "ch.qos.logback" % "logback-classic" % "1.2.3",
+    "ch.qos.logback" % "logback-core" % "1.2.3",
 
 
-  // LOGGING
-  "ch.qos.logback" % "logback-classic" % "1.2.3",
-  "ch.qos.logback" % "logback-core" % "1.2.3",
-
-
-  // TEST
-  "org.assertj" % "assertj-core" % "3.8.0" % "test",
-  "org.assertj" % "assertj-guava" % "3.1.0" % "test" exclude("com.google.guava", "guava"),
-  "com.novocode" % "junit-interface" % "0.11" % "test->default",
-  "org.jukito" % "jukito" % "1.5" % "test"
-)
-
+    // TEST
+    "org.assertj" % "assertj-core" % "3.8.0" % "test",
+    "org.assertj" % "assertj-guava" % "3.1.0" % "test" exclude("com.google.guava", "guava"),
+    "com.novocode" % "junit-interface" % "0.11" % "test->default",
+    "org.jukito" % "jukito" % "1.5" % "test"
+  )
+}
 scalacOptions in Test ++= Seq("-Yrangepos")
+
+version in ThisBuild := "0.3.3"
 
 dependencyUpdatesFailBuild := true
