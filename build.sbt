@@ -7,7 +7,7 @@ name := """commons"""
 organization := "software.reinvent"
 
 //version := "0.4.0-SNAPSHOT"
-version := "0.3.4"
+version := "0.3.3"
 
 scalaVersion := "2.12.2"
 
@@ -38,6 +38,20 @@ crossPaths := false
 // This forbids including Scala related libraries into the dependency
 autoScalaLibrary := false
 
+packageOptions <+= (name, version, organization) map { (title, version, vendor) =>
+  Package.ManifestAttributes(
+    "Created-By" -> "Simple Build Tool",
+    "Built-By" -> System.getProperty("user.name"),
+    "Build-Jdk" -> System.getProperty("java.version"),
+    "Specification-Title" -> title,
+    "Specification-Version" -> version,
+    "Specification-Vendor" -> vendor,
+    "Implementation-Title" -> title,
+    "Implementation-Version" -> version,
+    "Implementation-Vendor-Id" -> vendor,
+    "Implementation-Vendor" -> vendor
+  )
+}
 
 resolvers ++= Seq(
   Resolver.mavenLocal,
