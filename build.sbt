@@ -1,4 +1,4 @@
-
+import sbt.Keys.version
 
 // Project name (artifact name in Maven)
 name := """commons"""
@@ -6,8 +6,9 @@ name := """commons"""
 // orgnization name (e.g., the package name of the project)
 organization := "software.reinvent"
 
-//version := "0.4.0-SNAPSHOT"
-version := "0.3.3"
+
+version in ThisBuild := "0.4.0-SNAPSHOT"
+//version in ThisBuild := "0.3.3"
 
 scalaVersion := "2.12.2"
 
@@ -77,7 +78,5 @@ libraryDependencies ++= {
   )
 }
 scalacOptions in Test ++= Seq("-Yrangepos")
-
-version in ThisBuild := "0.3.3"
 
 dependencyUpdatesFailBuild := true
