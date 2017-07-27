@@ -1,3 +1,5 @@
+import aether.AetherKeys._
+
 // Project name (artifact name in Maven)
 name := """commons"""
 
@@ -5,9 +7,9 @@ name := """commons"""
 organization := "software.reinvent"
 
 //version := "0.4.0-SNAPSHOT"
-version := "0.3.3"
+version := "0.3.4"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.2"
 
 // project description
 description := "Common dependencies and utils for projects."
@@ -28,7 +30,8 @@ publishTo := {
 
 overridePublishBothSettings
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials.deploy")
 
 // Do not append Scala versions to the generated artifacts
 crossPaths := false
