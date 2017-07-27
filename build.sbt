@@ -30,8 +30,7 @@ publishTo := {
 
 overridePublishBothSettings
 
-//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials.deploy")
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 // Do not append Scala versions to the generated artifacts
 crossPaths := false
