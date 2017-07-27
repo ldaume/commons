@@ -1,4 +1,4 @@
-package software.reinvent.utils;
+package software.reinvent.commons.utils;
 
 import com.google.common.base.Splitter;
 

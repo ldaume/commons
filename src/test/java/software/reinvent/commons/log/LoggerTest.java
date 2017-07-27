@@ -1,4 +1,4 @@
-package software.reinvent.log;
+package software.reinvent.commons.log;
 
 
 import com.google.inject.Inject;

@@ -1,4 +1,4 @@
-package software.reinvent.jvm;
+package software.reinvent.commons.jvm;
 
 import com.google.common.base.Preconditions;
 import humanize.Humanize;

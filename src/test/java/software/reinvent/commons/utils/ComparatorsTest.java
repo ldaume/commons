@@ -1,4 +1,4 @@
-package software.reinvent.utils;
+package software.reinvent.commons.utils;
 
 import com.google.common.collect.ImmutableList;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static software.reinvent.utils.Comparators.versionStringComparator;
+import static software.reinvent.commons.utils.Comparators.versionStringComparator;
 
 /**
  * CUT of {@link Comparators}.

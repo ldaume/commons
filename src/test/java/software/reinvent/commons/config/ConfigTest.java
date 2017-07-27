@@ -3,7 +3,7 @@ package software.reinvent.commons.config;
 import com.typesafe.config.Config;
 import org.junit.Before;
 import org.junit.Test;
-import software.reinvent.test.ConfigTestUtils;
+import software.reinvent.commons.test.ConfigTestUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

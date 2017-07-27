@@ -1,4 +1,4 @@
-package software.reinvent.test;
+package software.reinvent.commons.test;
 
 import com.google.common.collect.ImmutableMap;
 import com.typesafe.config.Config;
