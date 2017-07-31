@@ -88,7 +88,7 @@ For any [Guice](https://github.com/google/guice) powered applications, one would
 The `JvmUtil` comes from my former colleague [Daniel Galán y Martins](https://github.com/galan/commons#degalancommonsutil) and provides access to information about the currently running JVM and some process-control (eg. fluent Termination of JVM, ShutdownHook methods).
 
 ## software.reinvent.commons.log
-Provides a injectable [logback](http://logback.qos.ch/) implementation for [slf4j](http://www.slf4j.org/) which can used for every logging.
+Provides a injectable [logback](http://logback.qos.ch/) implementation for [slf4j](http://www.slf4j.org/) which can be used for every logging.
 
 Just bind the `Slf4jTypeListener` in a Guice module:
 ```java
