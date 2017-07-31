@@ -7,9 +7,10 @@ name := """commons"""
 organization := "software.reinvent"
 
 
-//version in ThisBuild := "0.4.0-SNAPSHOT"
-version in ThisBuild := "0.3.4"
-version := "0.3.4"
+version := "0.4.0-SNAPSHOT"
+version in ThisBuild := "0.4.0-SNAPSHOT"
+// version in ThisBuild := "0.3.4"
+// version := "0.3.4"
 
 scalaVersion := "2.12.3"
 
