@@ -7,10 +7,10 @@ name := """commons"""
 organization := "software.reinvent"
 
 
-version in ThisBuild := "0.4.0-SNAPSHOT"
-//version in ThisBuild := "0.3.3"
+//version in ThisBuild := "0.4.0-SNAPSHOT"
+version in ThisBuild := "0.3.4"
 
-scalaVersion := "2.12.2"
+scalaVersion := "2.12.3"
 
 // project description
 description := "Common dependencies and utils for projects."
