@@ -1,6 +1,6 @@
-| Build Status | Dependencies UpToDate | License |
-|:------------:|:---------------------:|:-------:|
-| [![Build Status](https://ci.reinvent-software.de/buildStatus/icon?job=Commons-Build)](https://ci.reinvent-software.de/job/Commons-Build) | [![Dependencies UpToDate](https://ci.reinvent-software.de/buildStatus/icon?job=Commons-DependencyCheck)](https://ci.reinvent-software.de/job/Commons-DependencyCheck) | [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
+| Build Status | Dependencies UpToDate | Latest Version | License |
+|:------------:|:---------------------:|:-------:|:-------:|
+| [![Build Status](https://ci.reinvent-software.de/buildStatus/icon?job=Commons-Build)](https://ci.reinvent-software.de/job/Commons-Build) | [![Dependencies UpToDate](https://ci.reinvent-software.de/buildStatus/icon?job=Commons-DependencyCheck)](https://ci.reinvent-software.de/job/Commons-DependencyCheck) | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/software.reinvent/commons/badge.svg)](https://maven-badges.herokuapp.com/maven-central/software.reinvent/commons) | [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
 
 
 
@@ -31,37 +31,21 @@ Common dependencies and utils for projects.
 # Usage
 
 ## Repo
+Just add the following maven central dependency.
 
 ### SBT
-Add maven repo to `build.sbt`.
+Add dependency to `build.sbt`.
 ```bash
-resolvers ++= Seq(
-  Resolver.mavenLocal,
-  "ReInvent Software OSS" at "https://maven.reinvent-software.de/nexus/content/groups/public"
-)
+libraryDependencies += "software.reinvent" % "commons" % "0.3.4"
 ```
-and  `libraryDependencies += "software.reinvent" % "commons" % "0.3.4"`
 
 ### Maven
-Add repo to pom.xml
-
-```xml
-<repositories>
-    <repository>
-        <id>reinvent-oss</id>
-        <name>ReInvent Software OSS</name>
-        <url>https://maven.reinvent-software.de/nexus/content/groups/public</url>
-    </repository>
-</repositories>
-```
-
-and dependency:
 ```xml
 <dependency>
-    <groupId>software.reinven</groupId>
+    <groupId>software.reinvent</groupId>
     <artifactId>commons</artifactId>
     <version>0.3.4</version>
-</dependency>
+</dependency
 ```
 
 # Overview
