@@ -31,7 +31,7 @@ Common dependencies and utils for projects.
 # Usage
 
 ## Repo
-Just add the following maven central dependency.
+Just add the following [maven central](https://mvnrepository.com/artifact/software.reinvent/commons) dependency.
 
 ### SBT
 Add dependency to `build.sbt`.
