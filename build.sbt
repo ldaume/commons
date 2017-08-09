@@ -6,45 +6,19 @@ name := """commons"""
 // orgnization name (e.g., the package name of the project)
 organization := "software.reinvent"
 
-
 version := "0.4.0-SNAPSHOT"
 version in ThisBuild := "0.4.0-SNAPSHOT"
-// version in ThisBuild := "0.3.4"
-// version := "0.3.4"
+//version := "0.3.5"
+//version in ThisBuild := "0.3.5"
 
 scalaVersion := "2.12.3"
 
 // project description
 description := "Common dependencies and utils for projects."
 
-// Enables publishing to maven repo
-publishMavenStyle := true
-publishArtifact in Test := false
-pomIncludeRepository := { _ => false }
-
-publishTo := {
-  val nexus = "https://maven.reinvent-software.de/nexus/"
-  if (version.value.trim.endsWith("SNAPSHOT")) {
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  } else {
-    Some("releases" at nexus + "content/repositories/releases")
-  }
-}
-
-overridePublishBothSettings
-
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials.deploy")
-
-// Do not append Scala versions to the generated artifacts
-crossPaths := false
-
-// This forbids including Scala related libraries into the dependency
-autoScalaLibrary := false
 
 resolvers ++= Seq(
-  Resolver.mavenLocal,
-  "ReInvent Software OSS" at "https://maven.reinvent-software.de/nexus/content/groups/public"
+  Resolver.mavenLocal
 )
 
 
@@ -56,7 +30,7 @@ libraryDependencies ++= {
 
     // Commons
     "org.apache.commons" % "commons-lang3" % "3.6",
-    "com.google.guava" % "guava" % "22.0",
+    "com.google.guava" % "guava" % "23.0",
     "org.apache.commons" % "commons-collections4" % "4.1",
     "commons-io" % "commons-io" % "2.5",
     "com.typesafe" % "config" % "1.3.1",
@@ -79,6 +53,62 @@ libraryDependencies ++= {
     "org.jukito" % "jukito" % "1.5" % "test"
   )
 }
+
 scalacOptions in Test ++= Seq("-Yrangepos")
 
 dependencyUpdatesFailBuild := true
+
+// Enables publishing to maven repo
+publishMavenStyle := true
+publishArtifact in Test := false
+pomIncludeRepository := { _ => false }
+
+enablePlugins(SignedAetherPlugin)
+
+disablePlugins(AetherPlugin)
+
+publishTo := {
+  val nexus = "https://maven.reinvent-software.de/nexus/"
+  if (version.value.trim.endsWith("SNAPSHOT")) {
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  } else {
+    //    Some("releases" at nexus + "content/repositories/releases")
+    Some(Opts.resolver.sonatypeStaging)
+  }
+}
+
+overridePublishBothSettings
+
+overridePublishSignedBothSettings
+
+//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials.sonatype")
+
+// Do not append Scala versions to the generated artifacts
+crossPaths := false
+
+// This forbids including Scala related libraries into the dependency
+autoScalaLibrary := false
+
+homepage := Some(new URL("https://github.com/ldaume/commons"))
+
+startYear := Some(2017)
+
+licenses := Seq(("MIT", new URL("https://github.com/ldaume/commons/blob/master/LICENSE")))
+
+pomExtra <<= (pomExtra, name, description) { (pom, name, desc) =>
+  pom ++ xml.Group(
+    <scm>
+      <url>http://github.com/ldaume/commons/tree/master</url>
+      <connection>scm:git:git://github.com:ldaume/commons.git</connection>
+      <developerConnection>scm:git:git@github.com:ldaume/commons.git</developerConnection>
+    </scm>
+      <developers>
+        <developer>
+          <id>ldaume</id>
+          <name>Leonard Daume</name>
+          <url>https://reinvent.software</url>
+        </developer>
+      </developers>
+  )
+}

@@ -36,7 +36,7 @@ Just add the following [maven central](https://mvnrepository.com/artifact/softwa
 ### SBT
 Add dependency to `build.sbt`.
 ```bash
-libraryDependencies += "software.reinvent" % "commons" % "0.3.4"
+libraryDependencies += "software.reinvent" % "commons" % "0.3.5"
 ```
 
 ### Maven
@@ -44,7 +44,7 @@ libraryDependencies += "software.reinvent" % "commons" % "0.3.4"
 <dependency>
     <groupId>software.reinvent</groupId>
     <artifactId>commons</artifactId>
-    <version>0.3.4</version>
+    <version>0.3.5</version>
 </dependency
 ```
 
