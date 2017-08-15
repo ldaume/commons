@@ -68,12 +68,10 @@ enablePlugins(SignedAetherPlugin)
 disablePlugins(AetherPlugin)
 
 publishTo := {
-  val nexus = "https://maven.reinvent-software.de/nexus/"
   if (version.value.trim.endsWith("SNAPSHOT")) {
-    Some("snapshots" at nexus + "content/repositories/snapshots")
+    Some(Opts.resolver.sonatypeSnapshots)
   } else {
-    //    Some("releases" at nexus + "content/repositories/releases")
-    Some(Opts.resolver.sonatypeStaging)
+    Some(Opts.resolver.sonatypeReleases)
   }
 }
 
