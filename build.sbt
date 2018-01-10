@@ -8,8 +8,8 @@ organization := "software.reinvent"
 
 //version := "0.4.0-SNAPSHOT"
 //version in ThisBuild := "0.4.0-SNAPSHOT"
-version := "0.3.6"
-version in ThisBuild := "0.3.6"
+version := "0.3.7"
+version in ThisBuild := "0.3.7"
 
 scalaVersion := "2.12.4"
 
@@ -30,7 +30,7 @@ libraryDependencies ++= {
 
     // Commons
     "org.apache.commons" % "commons-lang3" % "3.7",
-    "com.google.guava" % "guava" % "23.5-jre",
+    "com.google.guava" % "guava" % "23.6-jre",
     "org.apache.commons" % "commons-collections4" % "4.1",
     "commons-io" % "commons-io" % "2.6",
     "com.typesafe" % "config" % "1.3.2",
@@ -47,7 +47,7 @@ libraryDependencies ++= {
 
 
     // TEST
-    "org.assertj" % "assertj-core" % "3.8.0" % "test",
+    "org.assertj" % "assertj-core" % "3.9.0" % "test",
     "org.assertj" % "assertj-guava" % "3.1.0" % "test" exclude("com.google.guava", "guava"),
     "com.novocode" % "junit-interface" % "0.11" % "test->default",
     "org.jukito" % "jukito" % "1.5" % "test"
