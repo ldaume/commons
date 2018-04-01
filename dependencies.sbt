@@ -7,11 +7,11 @@ libraryDependencies ++= {
 
     // Commons
     "org.apache.commons" % "commons-lang3" % "3.7",
-    "com.google.guava" % "guava" % "24.0-jre",
+    "com.google.guava" % "guava" % "24.1-jre",
     "org.apache.commons" % "commons-collections4" % "4.1",
     "commons-io" % "commons-io" % "2.6",
     "com.typesafe" % "config" % "1.3.3",
-    "org.unbescape" % "unbescape" % "1.1.5.RELEASE",
+    "org.unbescape" % "unbescape" % "1.1.6.RELEASE",
     "com.github.rholder" % "guava-retrying" % "2.0.0" exclude("com.google.guava", "guava"),
 
     // READABILITY
